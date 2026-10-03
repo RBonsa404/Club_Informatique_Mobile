@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modify this file to customize your launch splash screen -->
+<!-- Écran d'ouverture affiché pendant le démarrage : fond Bleu Nuit, logo du club au centre. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="?android:colorBackground" />
-
-    <!-- You can insert your own image assets here -->
-    <!-- <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
+    <item android:drawable="@color/bleu_nuit" />
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/logo_ouverture" />
+    </item>
 </layer-list>

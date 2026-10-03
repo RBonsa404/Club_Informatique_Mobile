@@ -13,6 +13,7 @@ import 'features/activites.dart';
 import 'features/auth.dart';
 import 'features/compte.dart';
 import 'features/contenus.dart';
+import 'features/ouverture.dart';
 
 /// Pages réservées à un utilisateur connecté.
 bool _protegee(String chemin) => chemin.startsWith('/espace');

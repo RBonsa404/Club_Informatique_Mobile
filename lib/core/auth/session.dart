@@ -77,7 +77,8 @@ class Session extends ChangeNotifier {
 
   /// Au démarrage : reprend la session si l'appareil en garde une.
   Future<void> reprendre() async {
-    await renouveler();
+    // L'écran d'ouverture reste visible un court instant, même si la reprise est immédiate.
+    await Future.wait([renouveler(), Future<void>.delayed(const Duration(milliseconds: 1400))]);
     _pret = true;
     notifyListeners();
     if (connecte) unawaited(actualiserNonLues());

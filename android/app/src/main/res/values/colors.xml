@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bleu Nuit Circuit de la charte du club. -->
+    <color name="bleu_nuit">#0B1E3F</color>
+    <color name="fond_icone">#FFFFFF</color>
+</resources>

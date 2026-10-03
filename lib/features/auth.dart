@@ -315,20 +315,3 @@ class _PageMotDePasseOublieState extends State<PageMotDePasseOublie> {
           ],
         );
 }
-
-/// Écran d'ouverture, affiché pendant la reprise de la session.
-class EcranDeDemarrage extends StatelessWidget {
-  const EcranDeDemarrage({super.key});
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Charte.bleuNuit,
-        body: Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            ClipRRect(borderRadius: BorderRadius.circular(26), child: Image.asset('assets/img/logo-256.png', width: 116, height: 116)),
-            const SizedBox(height: 26),
-            const SizedBox(width: 26, height: 26, child: CircularProgressIndicator(strokeWidth: 2.5, color: Charte.cyan)),
-          ]),
-        ),
-      );
-}
