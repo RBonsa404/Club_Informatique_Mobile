@@ -1,7 +1,16 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// Clé de signature de l'application, conservée hors du dépôt (android/key.properties, ignoré par Git).
+// Sans clé propre, Android signe avec la clé de débogage publique et Play Protect signale l'application comme dangereuse.
+val proprietesCle = Properties().apply {
+    val fichier = rootProject.file("key.properties")
+    if (fichier.exists()) fichier.inputStream().use { load(it) }
 }
 
 android {
@@ -29,11 +38,21 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release") {
+            if (proprietesCle.isNotEmpty()) {
+                keyAlias = proprietesCle.getProperty("keyAlias")
+                keyPassword = proprietesCle.getProperty("keyPassword")
+                storeFile = file(proprietesCle.getProperty("storeFile"))
+                storePassword = proprietesCle.getProperty("storePassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // Signature avec la clé du club ; la clé de débogage reste réservée aux essais sans key.properties.
+            signingConfig = if (proprietesCle.isNotEmpty()) signingConfigs.getByName("release") else signingConfigs.getByName("debug")
         }
     }
 }
