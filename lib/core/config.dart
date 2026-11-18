@@ -18,7 +18,7 @@ String get origineDuSite => _siteDefini.isNotEmpty ? _siteDefini : (kIsWeb ? Uri
 class Club {
   static const nom = 'Club Informatique de l’IST';
   static const nomCourt = 'Club Informatique';
-  static const institution = 'Institut Supérieur de Technologie';
+  static const institution = 'Institut Supérieur de Technologies';
   static const ville = 'Ouagadougou, Burkina Faso';
   static const courriel = 'contact@informatique.ist-club.bf';
   static const whatsapp = 'https://wa.me/22664931557';
